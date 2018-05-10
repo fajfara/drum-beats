@@ -1,0 +1,17 @@
+.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.main-bg-color {
+    background-color: $beige;
+}
+
+.fade-in {
+    animation: fade-in 2s; 
+}

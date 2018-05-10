@@ -1,0 +1,22 @@
+.start-overlay {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: $orange-light;
+    animation: fade-out 2s;
+
+    & h1 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: $main-font;
+        font-weight: 700;
+        font-size: 5rem;
+        color: $orange-red;
+        letter-spacing: .2rem;
+        text-transform: uppercase;
+        border-bottom: $orange-red 4px solid;
+        line-height: 7rem;
+    }
+}

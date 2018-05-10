@@ -1,80 +1,24 @@
-.drum-container {
-    width: 30rem;
-    margin: 0 auto;
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,700');
+@import "reset";
+// Variables
+$main-font: 'IBM Plex Sans', sans-serif;
+$brown: #330808;
+$beige: #f1fba6;
+$orange-dark: #ff841f; 
+$orange-light: #ffd162;
+$orange-red: #e50000;
+
+
+// Default size setting
+html {
+    font-size: 70%;
 }
 
-#drums {
-    width: 100%;
+body {
+    background-color: $orange-light;
 }
-
-.animate--beat {
-    animation-name: beat;
-    animation-duration: 1s;
-    transform-origin: 50% 50%;
-    animation-iteration-count: infinite;
-}
-
-.move-cymbal-down {
-    animation-name: left-top;
-    animation-duration: .5s;
-    transform-origin: 50% 50%;
-    animation-iteration-count: infinite;
-}
-
-.cymbal-shake {
-    animation-name: shake;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    transform-origin: 50% 50%;
-}
-
-#snare-drum {
-    cursor: pointer;
-}
-
-@keyframes beat {
-    0% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes left-top {
-    100% {
-        transform: translateY(1rem);
-    }
-}
-
-@keyframes rotate-cymbal {
-    0% {
-        transform: rotateX(10deg);
-    }
-
-    50% {
-        transform: rotateX(0);
-    }
-
-    100% {
-        transform: rotateX(-10deg);
-    }
-}
-
-@keyframes shake {
-    10%, 90% {
-      transform: translate3d(0, -1px, 0);
-    }
-    
-    20%, 80% {
-      transform: translate3d(0, 2px, 0);
-    }
-  
-    30%, 50%, 70% {
-      transform: translate3d(0, -4px, 0);
-    }
-  
-    40%, 60% {
-      transform: translate3d(0, 4px, 0);
-    }
-  }
+@import "buttons";
+@import "drum";
+@import "animations";
+@import "utilities";
+@import "overlay";
