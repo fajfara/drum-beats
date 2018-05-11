@@ -12,11 +12,19 @@
         transform: translate(-50%, -50%);
         font-family: $main-font;
         font-weight: 700;
-        font-size: 5rem;
+        font-size: 4.5rem;
         color: $orange-red;
         letter-spacing: .2rem;
         text-transform: uppercase;
-        border-bottom: $orange-red 4px solid;
         line-height: 7rem;
     }
+}
+
+.effect01{
+    text-shadow:
+    0px 1px 0px #fcc597,
+    0px 2px 0px #ffbd87,
+    0px 3px 0px #ffad6b,
+    0px 4px 0px #ffa359,
+    0px 5px 10px rgba($orange-dark, 0.6);
 }

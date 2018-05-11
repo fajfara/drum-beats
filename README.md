@@ -12,4 +12,10 @@ DATE: 10.5.2018
 
 ```
 
+DATE: 11.5.2018
+```
+ Added the beginning sound, disable the button at the start for the duration of the 'badum tss' intro sequence. Added the instructions panel and made so it disappears when you click the start button. Some bug fixes for the button, now it moves down correctly when pressed. Styling is not final.
+
+```
+
 Plans: By the end of the month have the core game mechanic done so you can play. Later on add the leaderboards feature so you can save your highscore.

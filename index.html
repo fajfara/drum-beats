@@ -9,10 +9,30 @@
 </head>
 <body>
     <div class="start-overlay" id="overlay">
-        <h1>Welcome to drum beats</h1>
+        <h1 class="effect01">Welcome to drum beats</h1>
 
     </div>
     <div class="drum-container hide" id="drum-container">
+        <div id="drum-overlay" class="hide">
+            <div class="drum-overlay__text">
+                <h1>Welcome to Drum beats!</h1>
+                <p>
+                    <span class="drum-overlay__text--instructions-title">
+                        Instructions:
+                    </span>
+                    <ul>
+                        <li>First the computer plays a sequence</li>
+                        <li>After the computer plays his solo, you copy him!</li>
+                        <li>Press the same drums that computer did</li>
+                        <li>You have 3 trys before you lose</li>
+                    </ul>
+                    <span class="drum-overlay__text--ready-text">
+                        You ready?! <br>
+                        Press the Start button bellow to start, good luck!
+                    </span>
+                </p>
+            </div>
+        </div>
         <?xml version="1.0" encoding="utf-8"?>
         <!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -91,7 +111,7 @@
         </g>
         </svg>
 
-        <a href="#" class="btn red" id="start-button">Start the game</a>
+        <a href="#" class="btn red disable-click" id="start-button">Start the game</a>
         
 
     </div>

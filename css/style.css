@@ -55,15 +55,15 @@ body {
 .btn {
   border-radius: 5px;
   padding: 15px 25px;
-  font-size: 22px;
-  text-decoration: none;
-  color: #fff;
-  position: relative;
-  left: 50%;
-  transform: translateX(-55%);
-  margin-top: 3rem;
   display: inline-block;
-  font-family: "IBM Plex Sans", sans-serif, sans-serif;
+  position: relative;
+  left: -1.2rem;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: #f1fba6;
+  font-size: 2rem;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 700;
   text-transform: uppercase; }
   .btn:active {
     transform: translate(0px, 5px);
@@ -73,20 +73,66 @@ body {
 .red {
   background-color: #e74c3c;
   box-shadow: 0px 5px 0px 0px #CE3323; }
-
-.red:hover {
-  background-color: #FF6656; }
+  .red:hover {
+    background-color: #FF6656; }
 
 .drum-container {
-  width: 45rem;
+  width: 50rem;
   margin: 0 auto;
+  margin-top: 8rem;
+  padding-bottom: 10rem;
   position: absolute;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  text-align: center; }
 
 #drums {
   width: 100%; }
+
+#drum-overlay {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 17%;
+  border-radius: 1rem;
+  background-color: #f1fba6; }
+
+.drum-overlay__text {
+  margin-top: 4rem;
+  text-align: center; }
+  .drum-overlay__text h1 {
+    font-size: 2.7rem;
+    color: #330808;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    margin-bottom: 1rem; }
+  .drum-overlay__text--instructions-title {
+    font-size: 1.5rem;
+    color: #330808;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    margin-bottom: 1rem; }
+  .drum-overlay__text ul {
+    margin-top: 1.5rem;
+    color: #330808; }
+    .drum-overlay__text ul li {
+      margin-top: 1rem;
+      font-size: 2rem;
+      font-family: "IBM Plex Sans", sans-serif; }
+  .drum-overlay__text--ready-text {
+    position: relative;
+    display: block;
+    margin-top: 4rem;
+    font-size: 2rem;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    color: #330808; }
 
 .animate--beat {
   animation-name: beat;
@@ -105,7 +151,7 @@ body {
 
 @keyframes beat {
   0% {
-    transform: scale(1.1); }
+    transform: scale(1.05); }
   100% {
     transform: scale(1); } }
 
@@ -157,6 +203,15 @@ body {
 .fade-in {
   animation: fade-in 2s; }
 
+.fade-out {
+  animation: fade-out 1s; }
+
+.disable-click {
+  pointer-events: none; }
+
+.enable-click {
+  pointer-events: all; }
+
 .start-overlay {
   height: 100vh;
   width: 100%;
@@ -170,9 +225,11 @@ body {
     transform: translate(-50%, -50%);
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 700;
-    font-size: 5rem;
+    font-size: 4.5rem;
     color: #e50000;
     letter-spacing: .2rem;
     text-transform: uppercase;
-    border-bottom: #e50000 4px solid;
     line-height: 7rem; }
+
+.effect01 {
+  text-shadow: 0px 1px 0px #fcc597, 0px 2px 0px #ffbd87, 0px 3px 0px #ffad6b, 0px 4px 0px #ffa359, 0px 5px 10px rgba(255, 132, 31, 0.6); }
