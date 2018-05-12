@@ -1,11 +1,13 @@
+// Variables main
 let userSeq = [];
-let simonSeq = [];
-let count = 5;
+let simonSeq = [4];
+let count = 1;
 let on;
 let off;
 let j = 0;
 const introSeq = [2,3,5];
 
+// Selecting DOM elements
 const snareDrum = document.getElementById('snare-drum');
 const leftTom = document.getElementById('left-tom');
 const rightTom = document.getElementById('right-tom');
@@ -17,6 +19,7 @@ const overlay = document.getElementById('overlay');
 const drumContainer = document.getElementById('drum-container');
 const startButton = document.getElementById('start-button');
 const drumOverlay = document.getElementById('drum-overlay');
+const disableClick = document.getElementById('disable-click');
 
 // audio variables
 const snareDrumAudio = new Audio('./drum-sounds/snare.wav');
@@ -28,18 +31,24 @@ const leftCymbalAudio = new Audio('./drum-sounds/closed-cymbal.wav');
 const buttonPushed = new Audio('./drum-sounds/button-push.wav');
 
 window.onload = function() {
-
-    for(let i = 0; i < 5; i++){
-        simonSeq[i] = Math.ceil((Math.random() * 6));
-    }
+    // At the start don't show the transparent div that is used to prevent user clicking the drums while the sequence is playing
+    disableClick.classList.add("show");
+    // Get random numbers for now mainly used for testing
+    //simonSeq[0] = Math.ceil((Math.random() * 6));
+    // Log used for testing
     console.log(simonSeq);
+    // Call the function which draws the start screen
     startScreen();
+    // Intro drum sequence
     setTimeout(() => {
         introSequence();
     }, 2200);
 
+    // This is after the user clicks start button
     startButton.addEventListener("click", function(){
+        // Play the sound effect for the button pushed
         buttonPushed.play();
+        // Remove the overlay with instructions etc.
         setTimeout(() => {
             drumOverlay.classList.remove("show");
             drumOverlay.classList.add("fade-out");
@@ -47,7 +56,17 @@ window.onload = function() {
                 drumOverlay.classList.add("hide");
             }, 900);
         }, 500);
-        startSequence();
+        // Remove the start button and show the transparent div that prevents user clicks
+        setTimeout(() => {
+            startButton.classList.add("fade-out");
+            setTimeout(() => {
+                startButton.classList.add("hide");
+            }, 900);
+            
+        }, 500);
+        // Start playing the sequence
+        startGame();
+        // For debugging only
         console.log(count, j);
     })
 
@@ -56,11 +75,19 @@ window.onload = function() {
 
 };
 
+// Starting the game
+function startGame() {
+    startSequence();
+}
+
+// Function made for playing the intro drum sequence, tried to do badum tss, eh close enough :)
 function introSequence(){
+    // Variables for interval and index for the array
     var onIntro = 500;
     var offIntro = 100;
     var index = 0;
 
+    // Animating the drum set
     a = setInterval(function() {
         if(introSeq[index] == 2){
             leftTom.classList.add("animate--beat");
@@ -84,6 +111,7 @@ function introSequence(){
             }, 1000);
         }
         index++;
+        // When it gets to the end of the array clear interval, enable the start button and show overlay
         if(index == introSeq.length){
             clearInterval(a);
             startButton.classList.remove("disable-click");
@@ -99,6 +127,8 @@ function introSequence(){
     }, onIntro)
 }
 
+
+// Show the whole drum container 
 function startScreen() {
     setTimeout(() => {
         overlay.classList.add('hide');
@@ -110,6 +140,7 @@ function startScreen() {
     }, 1900);
 }
 
+// Function for playing audio
 function playAudio(source) {
     setTimeout(function(){
         source.play();
@@ -120,7 +151,10 @@ function playAudio(source) {
     }, 100);
 }
 
+// Going through the sequence
 function startSequence() {
+    //Reset count
+    count = simonSeq.length;
     // set interval length
     if(count <= 10){
         off = 800;
@@ -130,7 +164,7 @@ function startSequence() {
         off = 500;
         on = 1000;
     }
-
+    // Interval
     x = setInterval(function () {
         if(simonSeq[j] == 1){
             snareDrum.classList.add("animate--beat");
@@ -185,11 +219,32 @@ function startSequence() {
             }, off);
         }
         j++;
+        // debugging
         console.log("This is the: " + j + "nth time throught the interval");
+        // Check if at the end of the array and reset j
         if(j == count){
             clearInterval(x);
             j = 0;
+            
+            disableClick.classList.remove("show");
+            disableClick.classList.add("hide");
         }
 
     }, on);
+}
+
+function sizeUp(x){
+    var test = x;
+    var numberOfDrum = parseInt(x.attributes[0].value);
+    simonSeq.push(numberOfDrum);
+    console.log(simonSeq);
+
+    x.classList.remove("normalize-scale");
+    x.classList.remove("scale-up");
+    x.classList.add("scale-up");
+}
+
+function sizeDown(x){
+    x.classList.remove("scale-up");
+    x.classList.add("normalize-scale");
 }

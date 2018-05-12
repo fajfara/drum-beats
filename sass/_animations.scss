@@ -16,6 +16,16 @@
     transform-origin: 50% 50%;
 }
 
+.scale-up {
+    transform: scale(1.05);
+    transform-origin: 50% 50%;
+}
+
+.normalize-scale {
+    transform: scale(1);
+    transform-origin: 50% 50%;
+}
+
 @keyframes beat {
     0% {
         transform: scale(1.05);

@@ -11,6 +11,7 @@
     font-family: $main-font;
     font-weight: 700;
     text-transform: uppercase;
+    z-index: 10001;
     
     &:active{
         transform: translate(0px, 5px);
@@ -22,8 +23,9 @@
 
 
 .red{
-    background-color: #e74c3c;
-    box-shadow: 0px 5px 0px 0px #CE3323;
+    background-color: $carmine;
+    box-shadow: 0px 5px 0px 0px #8b2d28;
+    
 
     &:hover {
         background-color: #FF6656;

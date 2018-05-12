@@ -2,7 +2,7 @@
     height: 100vh;
     width: 100%;
     position: relative;
-    background-color: $orange-light;
+    background-color: $ruddy-light;
     animation: fade-out 2s;
 
     & h1 {
@@ -13,7 +13,7 @@
         font-family: $main-font;
         font-weight: 700;
         font-size: 4.5rem;
-        color: $orange-red;
+        color: $white;
         letter-spacing: .2rem;
         text-transform: uppercase;
         line-height: 7rem;
@@ -22,9 +22,9 @@
 
 .effect01{
     text-shadow:
-    0px 1px 0px #fcc597,
-    0px 2px 0px #ffbd87,
-    0px 3px 0px #ffad6b,
-    0px 4px 0px #ffa359,
-    0px 5px 10px rgba($orange-dark, 0.6);
+    0px 1px 0px #ffffff,
+    0px 2px 0px #c5c5c5,
+    0px 3px 0px #919191,
+    0px 4px 0px #5a5a5a,
+    0px 5px 10px rgba($black, 0.6);
 }
