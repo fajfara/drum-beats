@@ -234,12 +234,6 @@ function startSequence() {
 }
 
 function sizeUp(x){
-    var test = x;
-    var numberOfDrum = parseInt(x.attributes[0].value);
-    simonSeq.push(numberOfDrum);
-    console.log(simonSeq);
-
-    x.classList.remove("normalize-scale");
     x.classList.remove("scale-up");
     x.classList.add("scale-up");
 }

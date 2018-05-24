@@ -50,7 +50,8 @@ html {
   font-size: 70%; }
 
 body {
-  background-color: #c07f24; }
+  background-color: #c07f24;
+  height: 100%; }
 
 .btn {
   border-radius: 5px;
@@ -88,6 +89,73 @@ body {
   transform: translate(-50%, -50%);
   overflow: visible;
   text-align: center; }
+  .drum-container__hitbox {
+    z-index: 9000;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5); }
+    .drum-container__hitbox--snare-drum {
+      width: 15rem;
+      background-color: rgba(255, 255, 0, 0.473);
+      height: 10rem;
+      position: absolute;
+      top: 24%;
+      left: 33%;
+      z-index: 9001; }
+    .drum-container__hitbox--left-tom {
+      width: 15rem;
+      background-color: rgba(255, 0, 0, 0.555);
+      height: 8rem;
+      position: absolute;
+      top: 26%;
+      left: 9%;
+      z-index: 9002;
+      transform: rotate(10deg); }
+    .drum-container__hitbox--right-tom {
+      width: 15rem;
+      background-color: rgba(255, 0, 0, 0.555);
+      height: 8rem;
+      position: absolute;
+      top: 26%;
+      left: 56%;
+      z-index: 9002;
+      transform: rotate(-10deg); }
+    .drum-container__hitbox--kick-drum {
+      width: 28rem;
+      height: 28rem;
+      background-color: rgba(0, 0, 255, 0.603);
+      border-radius: 100rem;
+      position: absolute;
+      top: 32%;
+      z-index: 9003;
+      left: 20%; }
+    .drum-container__hitbox--right-cymbal {
+      width: 19rem;
+      background-color: rgba(255, 166, 0, 0.473);
+      height: 2rem;
+      position: absolute;
+      top: 10%;
+      left: 62%;
+      z-index: 9001; }
+    .drum-container__hitbox--left-cymbal-top {
+      width: 14.5rem;
+      background-color: rgba(255, 166, 0, 0.473);
+      height: 2rem;
+      position: absolute;
+      top: 5.5%;
+      left: 0;
+      z-index: 9001; }
+    .drum-container__hitbox--left-cymbal-bottom {
+      width: 14.5rem;
+      background-color: rgba(255, 166, 0, 0.473);
+      height: 2rem;
+      position: absolute;
+      top: 10%;
+      left: 0;
+      z-index: 9001; }
+  .drum-container svg, .drum-container g {
+    overflow: visible; }
 
 #drums {
   width: 100%; }
@@ -162,10 +230,6 @@ body {
 
 .scale-up {
   transform: scale(1.05);
-  transform-origin: 50% 50%; }
-
-.normalize-scale {
-  transform: scale(1);
   transform-origin: 50% 50%; }
 
 @keyframes beat {
