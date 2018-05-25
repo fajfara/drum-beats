@@ -28,6 +28,8 @@ body {
     background-color: $safron-dark;
     height: 100%;
 }
+
+// import all scss
 @import "buttons";
 @import "drum";
 @import "animations";

@@ -13,25 +13,25 @@
     &__hitbox {
         z-index: 9000;
         width: 100%;
-        height: 100vh;
+        height: 50rem;
         position: absolute;
-        background-color: rgba(255, 255, 255, .5);
+        //background-color: rgba(255, 255, 255, .5);
         &--snare-drum {
             width: 15rem;
-            background-color: rgba(255, 255, 0, 0.473);
+            //background-color: rgba(255, 255, 0, 0.473);
             height: 10rem;
             position: absolute;
-            top: 24%;
+            top: 32%;
             left: 33%;
             z-index: 9001;
         }
 
         &--left-tom {
             width: 15rem;
-            background-color: rgba(255, 0, 0, 0.555);
+            //background-color: rgba(255, 0, 0, 0.555);
             height: 8rem;
             position: absolute;
-            top: 26%;
+            top: 34%;
             left: 9%;
             z-index: 9002;
             transform: rotate(10deg);
@@ -39,11 +39,11 @@
 
         &--right-tom {
             width: 15rem;
-            background-color: rgba(255, 0, 0, 0.555);
+            //background-color: rgba(255, 0, 0, 0.555);
             height: 8rem;
             position: absolute;
-            top: 26%;
-            left: 56%;
+            top: 34%;
+            left: 57%;
             z-index: 9002;
             transform: rotate(-10deg);
         }
@@ -51,40 +51,30 @@
         &--kick-drum {
             width: 28rem;
             height: 28rem;
-            background-color: rgba(0, 0, 255, 0.603);
+            //background-color: rgba(0, 0, 255, 0.603);
             border-radius: 100rem;
             position: absolute;
-            top: 32%;
+            top: 42%;
             z-index: 9003;
             left: 20%;
         }
 
         &--right-cymbal {
             width: 19rem;
-            background-color: rgba(255, 166, 0, 0.473);
+            //background-color: rgba(255, 166, 0, 0.473);
             height: 2rem;
             position: absolute;
-            top: 10%;
+            top: 13%;
             left: 62%;
             z-index: 9001;
         }
 
-        &--left-cymbal-top {
+        &--left-cymbal {
             width: 14.5rem;
-            background-color: rgba(255, 166, 0, 0.473);
-            height: 2rem;
+            //background-color: rgba(255, 166, 0, 0.473);
+            height: 5rem;
             position: absolute;
-            top: 5.5%;
-            left: 0;
-            z-index: 9001;
-        }
-
-        &--left-cymbal-bottom {
-            width: 14.5rem;
-            background-color: rgba(255, 166, 0, 0.473);
-            height: 2rem;
-            position: absolute;
-            top: 10%;
+            top: 7%;
             left: 0;
             z-index: 9001;
         }

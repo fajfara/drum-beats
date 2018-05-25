@@ -13,8 +13,9 @@ const leftTom = document.getElementById('left-tom');
 const rightTom = document.getElementById('right-tom');
 const kickDrum = document.getElementById('kick-drum');
 const rightCymbal = document.getElementById('right-cymbal');
-const leftCymbal = document.getElementById('left-cymbal-top-one');
-const leftCymbalTop = document.getElementById('left-top-cymbal');
+const leftCymbalTop = document.getElementById('left-cymbal-top-one');
+const leftCymbalBottom = document.getElementById('left-cymbal-bottom-one');
+const leftCymbal = document.getElementById('left-top-cymbal');
 const overlay = document.getElementById('overlay');
 const drumContainer = document.getElementById('drum-container');
 const startButton = document.getElementById('start-button');
@@ -234,11 +235,74 @@ function startSequence() {
 }
 
 function sizeUp(x){
-    x.classList.remove("scale-up");
-    x.classList.add("scale-up");
+    checkDrum(x.attributes.name.nodeValue);
 }
 
 function sizeDown(x){
-    x.classList.remove("scale-up");
-    x.classList.add("normalize-scale");
+    normalizeDrum(x.attributes.name.nodeValue);
+}
+
+function checkDrum(drum){
+    if(drum === 'snare'){
+        snareDrum.classList.remove('normalize-scale');
+        snareDrum.classList.remove('scale-up');
+        snareDrum.classList.add('scale-up'); 
+    } else if(drum === 'left-tom'){
+        leftTom.classList.remove('normalize-scale');
+        leftTom.classList.remove('scale-up');
+        leftTom.classList.add('scale-up'); 
+    } else if(drum === 'right-tom'){
+        rightTom.classList.remove('normalize-scale');
+        rightTom.classList.remove('scale-up');
+        rightTom.classList.add('scale-up'); 
+    } else if(drum === 'kick-drum'){
+        kickDrum.classList.remove('normalize-scale');
+        kickDrum.classList.remove('scale-up');
+        kickDrum.classList.add('scale-up'); 
+    } else if(drum === 'right-cymbal'){
+        rightCymbal.classList.add("cymbal-shake");
+        setTimeout(function() {
+            rightCymbal.classList.remove("cymbal-shake");
+        }, 800);
+    } else if(drum === 'left-cymbal'){
+        leftCymbal.classList.add("move-cymbal-down");
+        leftCymbalTop.classList.add("move-cymbal-down");
+        setTimeout(function() {
+            leftCymbal.classList.remove("move-cymbal-down");
+            leftCymbalTop.classList.remove("move-cymbal-down");
+        }, 800);
+    }
+}
+
+function normalizeDrum(drum){
+    if(drum === 'snare'){
+        snareDrum.classList.remove('normalize-scale');
+        snareDrum.classList.remove('scale-up');
+        snareDrum.classList.add('normalize-scale'); 
+    } else if(drum === 'left-tom'){
+        leftTom.classList.remove('normalize-scale');
+        leftTom.classList.remove('scale-up');
+        leftTom.classList.add('normalize-scale'); 
+    } else if(drum === 'right-tom'){
+        rightTom.classList.remove('normalize-scale');
+        rightTom.classList.remove('scale-up');
+        rightTom.classList.add('normalize-scale'); 
+    } else if(drum === 'kick-drum'){
+        kickDrum.classList.remove('normalize-scale');
+        kickDrum.classList.remove('scale-up');
+        kickDrum.classList.add('normalize-scale'); 
+    } else if(drum === 'right-cymbal'){
+        rightCymbal.classList.add("cymbal-shake");
+        setTimeout(function() {
+            rightCymbal.classList.remove("cymbal-shake");
+        }, 800);
+    } else if(drum === 'left-cymbal'){ 
+        leftCymbal.classList.add("move-cymbal-down");
+        leftCymbalTop.classList.add("move-cymbal-down");
+        
+        setTimeout(function() {
+            leftCymbal.classList.remove("move-cymbal-down");
+            leftCymbalTop.classList.remove("move-cymbal-down");
+        }, 800);
+    }
 }
