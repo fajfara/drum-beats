@@ -1,10 +1,12 @@
 // Variables main
 let userSeq = [];
-let simonSeq = [4];
+let simonSeq = [1];
 let count = 1;
 let on;
 let off;
 let j = 0;
+let counter = 0;
+let playing = true;
 const introSeq = [2,3,5];
 
 // Selecting DOM elements
@@ -31,6 +33,14 @@ const rightCymbalAudio = new Audio('./drum-sounds/cymbal.wav');
 const leftCymbalAudio = new Audio('./drum-sounds/closed-cymbal.wav');
 const buttonPushed = new Audio('./drum-sounds/button-push.wav');
 
+// selecting the hitbox DOM elements
+const hitboxSnare = document.getElementById("hitbox-snare");
+const hitboxLeftTom = document.getElementById("hitbox-left-tom");
+const hitboxRightTom = document.getElementById("hitbox-right-tom");
+const hitboxKickDrum = document.getElementById("hitbox-kick-drum");
+const hitboxRightCymbal = document.getElementById("hitbox-right-cymbal");
+const hitboxLeftCymbal = document.getElementById("hitbox-left-cymbal");
+
 window.onload = function() {
     // At the start don't show the transparent div that is used to prevent user clicking the drums while the sequence is playing
     disableClick.classList.add("show");
@@ -49,6 +59,7 @@ window.onload = function() {
     startButton.addEventListener("click", function(){
         // Play the sound effect for the button pushed
         buttonPushed.play();
+
         // Remove the overlay with instructions etc.
         setTimeout(() => {
             drumOverlay.classList.remove("show");
@@ -57,6 +68,7 @@ window.onload = function() {
                 drumOverlay.classList.add("hide");
             }, 900);
         }, 500);
+
         // Remove the start button and show the transparent div that prevents user clicks
         setTimeout(() => {
             startButton.classList.add("fade-out");
@@ -65,8 +77,12 @@ window.onload = function() {
             }, 900);
             
         }, 500);
-        // Start playing the sequence
-        startGame();
+        startSequence();
+        
+        userPlays();
+
+
+
         // For debugging only
         console.log(count, j);
     })
@@ -75,11 +91,6 @@ window.onload = function() {
 
 
 };
-
-// Starting the game
-function startGame() {
-    startSequence();
-}
 
 // Function made for playing the intro drum sequence, tried to do badum tss, eh close enough :)
 function introSequence(){
@@ -154,6 +165,7 @@ function playAudio(source) {
 
 // Going through the sequence
 function startSequence() {
+    console.log("Inside of start sequence");
     //Reset count
     count = simonSeq.length;
     // set interval length
@@ -226,7 +238,6 @@ function startSequence() {
         if(j == count){
             clearInterval(x);
             j = 0;
-            
             disableClick.classList.remove("show");
             disableClick.classList.add("hide");
         }
@@ -234,6 +245,34 @@ function startSequence() {
     }, on);
 }
 
+// function that checks for user input
+function userPlays(){
+    hitboxSnare.addEventListener("click", function(){
+        userSeq.push(1);
+    });
+    hitboxLeftTom.addEventListener("click", function(){
+        userSeq.push(2);
+    });
+    hitboxRightTom.addEventListener("click", function(){
+        userSeq.push(3);
+    });
+    hitboxKickDrum.addEventListener("click", function(){
+        userSeq.push(4);
+    });
+    hitboxRightCymbal.addEventListener("click", function(){
+        userSeq.push(5);
+    });
+    hitboxLeftCymbal.addEventListener("click", function(){
+        userSeq.push(6);
+    });
+
+}
+
+
+
+
+
+// Animation functions
 function sizeUp(x){
     checkDrum(x.attributes.name.nodeValue);
 }
