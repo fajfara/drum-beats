@@ -28,3 +28,35 @@
     0px 4px 0px #5a5a5a,
     0px 5px 10px rgba($black, 0.6);
 }
+
+.fail-screen{
+    width: 30rem;
+    background-color: $safron;
+    padding: 4rem;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    z-index: 100000;
+    text-align: center;
+
+    & h1{
+        font-family: $main-font;
+        font-weight: 700;
+        font-size: 2rem;
+        color: $beige;
+        margin-bottom: 1rem;
+    }
+
+    & span {
+        font-family: $main-font;
+        font-size: 2rem;
+        color: $beige;
+    }
+
+    &__buttons{
+        width: 90%;
+        display: block;
+        margin-left: 2.1rem; 
+    }
+
+}
