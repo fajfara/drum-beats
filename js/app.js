@@ -340,6 +340,7 @@ function userPlays(){
 
 }
 
+// Checking the user input if it matches the one played by the computer
 function checking(){
     disableClick.classList.remove("hide");
     disableClick.classList.add("show");
@@ -443,7 +444,7 @@ function checking(){
     */
 }
 
-
+// Enable the buttons on fail screen and do stuff
 function buttonsFailEnable(){
     tryAgainbutton.addEventListener("click", function(){
         tryAgain();
@@ -459,16 +460,6 @@ function tryAgain(){
     failScreen.classList.remove("show");
     failScreen.classList.add("hide");
 
-    // Show the disable click div
-    disableClick.classList.remove("hide");
-    disableClick.classList.add("show");
-
-    // Remove the score div
-    score.classList.remove("show");
-    score.classList.remove("fade-in");
-    score.classList.add("hide");
-    score.classList.add("fade-out");
-
     // reset all variables
     userSeq = [];
     simonSeq = [1];
@@ -480,19 +471,15 @@ function tryAgain(){
     userClickNum = -1;
     drumNumber;
 
-    // Playing the loading screen again
-    loadingScreen();
-    console.log("Out of the loop");
-    // Fade in the start button
-    setTimeout(() => {
-        startButton.classList.remove("fade-out");
-        startButton.classList.add("fade-in");
-        setTimeout(() => {
-            startButton.classList.remove("hide");
-            startButton.classList.add("show");
-        }, 900);
-        
-    }, 500);
+    for(var i = 0; i < 100; i++){
+        simonSeq[i] = Math.ceil((Math.random() * 6));
+    }
+
+    console.log(simonSeq);
+
+    startSequence();
+    userPlays();
+
 
 }
 
