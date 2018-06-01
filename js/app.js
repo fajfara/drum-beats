@@ -128,7 +128,6 @@ function introSequence(){
             }, 1000);
         }
         index++;
-        console.log("Why do i keep playing??? Index is: " + index + "introseq length: " + introSeq.length + "Whats inside intro: " + introSeq);
         // When it gets to the end of the array clear interval, enable the start button and show overlay
         if(index === introSeq.length){
             clearInterval(a);
@@ -181,7 +180,7 @@ function playAudio(source) {
 
 // Going through the sequence
 function startSequence() {
-    console.log("Inside of start sequence");
+    console.log("Inside of start sequence, simonseq: " + simonSeq);
     disableClick.classList.remove("hide");
     disableClick.classList.add("show");
     // set interval length
@@ -255,6 +254,7 @@ function startSequence() {
         j++;
         // debugging
         console.log("This is the: " + j + "nth time throught the interval");
+        console.log("PlayedID: " + playedID);
         // Check if at the end of the array and reset j
         if(j >= count){
             clearInterval(x);
@@ -371,11 +371,22 @@ function checking(){
                     return;
                 }
             } else {
-                console.log("Inside of the else for fail statement. Vars are:  " +
-                "User clicked time is: " + userClickNum + " " + 
-                "Played id are: " + playedID + 
-                "user clicked drums are: " + userSeq
+                console.log("Inside of the else first fail statement. Vars are:  " +
+                    "User clicked time is: " + userClickNum + " " + 
+                    "Played id are: " + playedID + 
+                    "user clicked drums are: " + userSeq +
+                    "Count is: " + count +
+                    "j is: " + j
                 )
+                disableClick.classList.remove("show");
+                disableClick.classList.add("hide");
+
+                playedID = [];
+                userSeq = [];
+                j = 0;
+                userClickNum = -1;
+
+
                 setTimeout(() => {
                     failScreen.classList.add('fade-in');
                     failScreen.classList.remove('hide');
@@ -411,6 +422,13 @@ function checking(){
         )
         disableClick.classList.remove("show");
         disableClick.classList.add("hide");
+
+        playedID = [];
+        userSeq = [];
+        j = 0;
+        userClickNum = -1;
+
+
         setTimeout(() => {
             failScreen.classList.add('fade-in');
             failScreen.classList.remove('hide');
@@ -456,20 +474,20 @@ function buttonsFailEnable(){
 }
 
 function tryAgain(){
+    console.log("Inside of try again");
     // Remove the fail screen
     failScreen.classList.remove("show");
     failScreen.classList.add("hide");
 
     // reset all variables
     userSeq = [];
-    simonSeq = [1];
+    simonSeq = [];
     playedID = [];
     on;
     off;
     j = 0;
     count= 1;
     userClickNum = -1;
-    drumNumber;
 
     for(var i = 0; i < 100; i++){
         simonSeq[i] = Math.ceil((Math.random() * 6));
@@ -478,7 +496,6 @@ function tryAgain(){
     console.log(simonSeq);
 
     startSequence();
-    userPlays();
 
 
 }
